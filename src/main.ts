@@ -12,6 +12,10 @@ const author = new Author('John Doe');
 const book = new Book('The Great Book', 2020, author);
 const ebook = new EBook('Digital Book', 2021, author, '<https://example.com/ebook>');
 
+author.addBook(book);
+author.addBook(ebook);
+console.log(`Кількість книг у автора ${author.name}: ${author.books.length}`);
+
 // Створення копій
 const copy1 = new Copy(book);
 const copy2 = new Copy(book);
@@ -49,6 +53,13 @@ console.log(`Copy1 is available: ${copy1.isCopyAvailable()}`);
 console.log('\\nBook descriptions:');
 console.log(book.getDescription());
 console.log(ebook.getDescription());
+
+console.log('\nВиправлення');
+
+const foundBooks = library.findBooksByAuthor("john doe"); 
+console.log(`Пошук "john doe": знайдено ${foundBooks.length} книг.`);
+console.log(`Рік видання книги "${book.title}": ${book.year}`);
+console.log(`Список книг автора ${author.name}: ${author.books.map(b => b.title).join(', ')}`);
 
 // Спроба створити AbstractBook
 // const abstractBook = new AbstractBook('Test', 2022); // Повинно викликати помилку компіляції 

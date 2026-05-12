@@ -24,6 +24,6 @@ export class Library {
 
  
   findBooksByAuthor(authorName: string): AbstractBook[] {
-    return this.books.filter(b => b.author.name === authorName);
+    return this.books.filter(b => b.author.name.toLowerCase() === authorName.toLowerCase());
   }
 }
